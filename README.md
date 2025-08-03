@@ -65,7 +65,7 @@ streamlit run app.py
 
 ## 📸 Exemplo de visualização interativo
 
-![Exemplo do Dashboard para teste](https://dashboardvendas-nwfekbrxlabmuhe2ntdwrw.streamlit.app/)
+(https://dashboardvendas-nwfekbrxlabmuhe2ntdwrw.streamlit.app/)
 
 ---
 
@@ -76,4 +76,5 @@ Este projeto está licenciado sob a [MIT License](LICENSE).
 ---
 
 Criado por [Seu Nome](https://github.com/seu-usuario) 🚀
+
 
