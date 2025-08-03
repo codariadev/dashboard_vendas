@@ -75,6 +75,7 @@ Este projeto está licenciado sob a [MIT License](LICENSE).
 
 ---
 
-Criado por [Seu Nome](https://github.com/seu-usuario) 🚀
+Criado por [CodariaDev](https://github.com/codariadev) 🚀
+
 
 
