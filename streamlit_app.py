@@ -5,6 +5,15 @@ import pandas as pd
 
 st.set_page_config(page_title="Dashboard de Vendas", layout="wide")
 st.title("📊 Dashboard de Vendas Interativo")
+
+with open("vendas.xlsx", "rb") as f:
+    st.download_button(
+        label="📥 Baixar planilha de teste",
+        data=f,
+        file_name="vendas.xlsx",
+        mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    )
+
 arquivo = st.file_uploader("📂 Envie a planilha de vendas (.xlsx)", type=["xlsx"])
 
 if arquivo:
@@ -19,12 +28,16 @@ if arquivo:
     data_final = col2.date_input("Data final", value=df['Data'].max().date())
 
     df_filtrado = df[
-        (df['Data'] >= pd.to_datetime(data_inicial)) & 
+        (df['Data'] >= pd.to_datetime(data_inicial)) &
         (df['Data'] <= pd.to_datetime(data_final))
     ]
 
     produtos = df_filtrado['Produto'].unique()
-    produtos_selecionados = st.multiselect("🛒 Selecione os produtos", options=produtos, default=produtos)
+    produtos_selecionados = st.multiselect(
+        "🛒 Selecione os produtos",
+        options=produtos,
+        default=produtos
+    )
     df_filtrado = df_filtrado[df_filtrado['Produto'].isin(produtos_selecionados)]
 
     total_faturado = df_filtrado['Faturamento'].sum()
@@ -54,8 +67,6 @@ if arquivo:
     )
     st.plotly_chart(fig_linha, use_container_width=True)
 
-    
-
     st.subheader("📄 Tabela de dados filtrados")
     st.dataframe(df_filtrado)
 
@@ -66,6 +77,3 @@ if arquivo:
         file_name="dados_filtrados.csv",
         mime="text/csv"
     )
-
-
-
