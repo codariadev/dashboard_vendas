@@ -1,81 +1,113 @@
 # 📊 Dashboard de Vendas Interativo
 
-Este é um projeto desenvolvido com [Streamlit](https://streamlit.io/) e [Plotly](https://plotly.com/python/) para criação de um dashboard interativo de vendas a partir de uma planilha Excel.
+Dashboard interativo de vendas feito em Python. Basta enviar uma planilha Excel para ver faturamento, ticket médio e gráficos, com filtros por período e por produto.
 
-## 🚀 Funcionalidades
+🔗 **Demo:** [dashboardvendas.streamlit.app](https://dashboardvendas-nwfekbrxlabmuhe2ntdwrw.streamlit.app/)
 
-- Upload de planilhas `.xlsx` com dados de vendas
-- Cálculo automático do faturamento (quantidade × valor unitário)
-- Filtros por período (data inicial e final)
-- Gráfico interativo de faturamento por produto
-- Interface leve e responsiva
+![Prévia do dashboard](thumbnail.png)
 
 ---
 
-## 🧾 Formato da Planilha Excel
+## ✨ Funcionalidades
 
-Para que o sistema funcione corretamente, o arquivo Excel enviado **deve conter obrigatoriamente** as seguintes colunas:
-
-| Coluna          | Tipo de dado     | Exemplo                   |
-|------------------|------------------|----------------------------|
-| `Data`           | Data             | 2025-08-01                |
-| `Produto`        | Texto            | Camiseta                  |
-| `Quantidade`     | Número inteiro   | 10                        |
-| `Valor Unitário` | Número decimal   | 59.90                     |
-
-> ⚠️ Os nomes das colunas devem estar exatamente como acima (com letras maiúsculas e acentos, se houver).
+- **Upload de planilha** `.xlsx` com os dados de vendas
+- **Planilha de exemplo** disponível para download dentro do próprio app, para testar sem precisar de dados próprios
+- **Faturamento calculado automaticamente** (quantidade × valor unitário)
+- **Filtros** por período (data inicial e final) e por produtos
+- **Indicadores (KPIs):** faturamento total, total de itens vendidos e ticket médio
+- **Gráficos interativos (Plotly):** faturamento por produto (barras) e faturamento por dia (linha)
+- **Tabela de dados filtrados** na tela
+- **Exportação em CSV** dos dados filtrados
+- Layout largo e responsivo
 
 ---
 
-## 🛠️ Como rodar o projeto localmente
+## 🧰 Tecnologias
 
-### 1. Clone o repositório
+- [Python](https://www.python.org/)
+- [Streamlit](https://streamlit.io/) (interface web e deploy)
+- [Pandas](https://pandas.pydata.org/) (leitura e tratamento dos dados)
+- [Plotly](https://plotly.com/python/) (gráficos interativos)
+- [openpyxl](https://openpyxl.readthedocs.io/) (leitura de arquivos Excel)
+
+---
+
+## 🧾 Formato da planilha
+
+O arquivo enviado **deve conter obrigatoriamente** estas colunas:
+
+| Coluna           | Tipo de dado   | Exemplo    |
+| ---------------- | -------------- | ---------- |
+| `Data`           | Data           | 2025-08-01 |
+| `Produto`        | Texto          | Camiseta   |
+| `Quantidade`     | Número inteiro | 10         |
+| `Valor Unitário` | Número decimal | 59.90      |
+
+> ⚠️ Os nomes das colunas precisam estar exatamente como acima, com maiúsculas e acentos. Apenas arquivos `.xlsx` são aceitos.
+
+O repositório inclui o arquivo `vendas.xlsx` como modelo.
+
+---
+
+## 🚀 Como rodar localmente
+
+### 1. Pré-requisitos
+
+- [Python 3.9+](https://www.python.org/downloads/)
+- [Git](https://git-scm.com/)
+
+### 2. Clonando o repositório
 
 ```bash
-git clone https://github.com/seu-usuario/dashboard-vendas.git
-cd dashboard-vendas
+git clone https://github.com/codariadev/dashboard_vendas.git
+cd dashboard_vendas
 ```
 
-### 2. Instale as dependências
+### 3. Criando um ambiente virtual (recomendado)
+
+```bash
+python -m venv venv
+
+# Linux / macOS
+source venv/bin/activate
+
+# Windows
+venv\Scripts\activate
+```
+
+### 4. Instalando as dependências
 
 ```bash
 pip install -r requirements.txt
 ```
 
-> Se não houver um `requirements.txt`, instale manualmente:
-```bash
-pip install streamlit pandas plotly openpyxl
-```
-
-### 3. Execute a aplicação
+### 5. Executando
 
 ```bash
-streamlit run app.py
+streamlit run streamlit_app.py
 ```
+
+O app abrirá no navegador, por padrão em [http://localhost:8501](http://localhost:8501).
 
 ---
 
-## 📝 Observações
+## 📁 Estrutura do projeto
 
-- Arquivos diferentes do formato `.xlsx` não serão aceitos.
-- O gráfico é gerado com base nos dados filtrados pelo intervalo de datas escolhido.
-- O campo `Faturamento` é calculado automaticamente a partir dos valores de `Quantidade` e `Valor Unitário`.
-
----
-
-## 📸 Exemplo de visualização interativo
-
-(https://dashboardvendas-nwfekbrxlabmuhe2ntdwrw.streamlit.app/)
+```
+dashboard_vendas/
+├── streamlit_app.py    # Aplicação principal
+├── vendas.xlsx         # Planilha de exemplo
+├── requirements.txt    # Dependências
+├── thumbnail.png       # Imagem de prévia
+└── README.md
+```
 
 ---
 
 ## 📄 Licença
 
-Este projeto está licenciado sob a [MIT License](LICENSE).
+Distribuído sob a licença **MIT**.
 
 ---
 
 Criado por [CodariaDev](https://github.com/codariadev) 🚀
-
-
-
